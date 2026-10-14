@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163c32">
+  <meta name="description" content="A small, intentionally vulnerable mobile web lab. Try an exploit, inspect the request, then verify the fix.">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css">
+  <title>Pocket Vuln Lab</title>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to lesson</a>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Pocket Vuln Lab home"><span class="brand-mark">pv<span>_</span></span><span>Pocket Vuln Lab<small>THE CLASSROOM EDITION</small></span></a>
+    <div class="course-label">SIX SMALL LESSONS. REAL BEHAVIOR.</div>
+    <nav id="lesson-nav" aria-label="Lessons"></nav>
+    <label class="mobile-picker">Choose a lesson<select id="lesson-select"></select></label>
+    <div class="course-progress"><div><span>Your fieldwork</span><strong id="progress-text">0 / 6 complete</strong></div><progress id="progress" max="6" value="0">0 of 6</progress><p>Observe the flaw. Verify the fix.<br>Both count toward completion.</p></div>
+    <div class="sidebar-foot"><span class="status-dot"></span> Synthetic data only<p>No real accounts. No external services.<br>Progress stays in this browser.</p><button id="reset-lab" class="quiet">Reset lab & progress</button></div>
+  </aside>
+  <main id="main">
+    <header class="topbar"><div class="eyebrow">A HANDS-ON SECURITY FIELD GUIDE</div><div class="mode-controls" role="group" aria-label="Security mode"><button id="mode-vulnerable" aria-pressed="true">Vulnerable</button><button id="mode-fixed" aria-pressed="false">Fixed</button></div></header>
+    <div class="mode-note" id="mode-note">Intentional flaws are enabled. All accounts and connection details are made up.</div>
+    <section class="lesson-heading"><div id="lesson-kicker" class="eyebrow"></div><h1 id="lesson-title"></h1><p id="lesson-description"></p><div class="evidence-row"><span id="evidence-vulnerable">Vulnerable: not observed</span><span id="evidence-fixed">Fix: not verified</span></div></section>
+    <div class="workspace">
+      <section class="bench" aria-labelledby="bench-title"><div class="section-top"><h2 id="bench-title">The test bench</h2><span id="mode-badge" class="badge">VULNERABLE</span></div><div id="exercise"></div><section id="result" class="result" aria-live="polite" aria-atomic="true"><strong>Ready when you are.</strong><p>Try the exercise. The server response will appear here.</p></section><details class="inspector"><summary>Request & response inspector <span id="request-count">0 requests</span></summary><p class="small">Actual HTTP requests made by this browser. Demo passwords and tokens are intentionally visible here. This is not a packet capture.</p><pre id="traffic">No requests yet.</pre></details></section>
+      <aside class="guide" aria-labelledby="guide-title"><div class="eyebrow">YOUR MISSION</div><h2 id="guide-title"></h2><ol id="steps"></ol><details class="hint"><summary>Need a hint?</summary><div id="hint-body"></div></details><section class="why"><h3>Why it works</h3><p id="why-text"></p></section><details class="repair" open><summary>The repair</summary><p id="repair-text"></p><pre id="repair-code"></pre></details></aside>
+    </div>
+    <footer><span>Real bugs. Disposable data. One lesson at a time.</span><span>HTTP lab · fixed mode ≠ TLS</span></footer>
+    <noscript>This lab requires JavaScript. Enable it and reload.</noscript>
+  </main>
+</body>
+</html>
